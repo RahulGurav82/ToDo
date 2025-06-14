@@ -11,6 +11,13 @@ const App = () => {
 
   const handleFormData = (e) => {
     e.preventDefault();
+
+      // Add validation for empty title
+      if (!inputData.title.trim()) {
+        toast.error("Title cannot be empty");
+        return;
+      }
+      
     if(editedIndex !== null) {
       const updateTodo = [...todoList];
       updateTodo[editedIndex] = inputData;
