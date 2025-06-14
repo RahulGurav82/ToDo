@@ -40,7 +40,7 @@ const { inputData, setInputData, todoList, setTodoList, editedIndex, setEditedIn
  
   return (
     <>
-      <div className="w-96 h-full border-amber-950 border-2 rounded-2xl">
+      <div className="md:w-96 w-80 h-full border-amber-950 border-2 rounded-2xl">
         <div className="p-4">
           <h1 className="font-bold text-2xl">To-Do List</h1>
         </div>
