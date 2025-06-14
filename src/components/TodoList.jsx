@@ -2,14 +2,12 @@ import React, { useContext, useState } from "react";
 import { Pencil, Trash2 } from "lucide-react";
 import { ToDoContext } from "../context/ToDoContext";
 
-const TodoList = () => {
+const TodoList = ({handleFormData}) => {
   const {
     todoList,
     setTodoList,
     setInputData,
     setEditedIndex,
-    setChecked,
-    checked,
   } = useContext(ToDoContext);
 
   const deleteTodo = (id) => {
@@ -42,11 +40,11 @@ const TodoList = () => {
               You Have {todoList.length} task Left
             </p>
           </div>
-          <button className="cursor-pointer py-2 px-12 bg-gray-800 rounded-xl text-white font-bold text-[15px]">
+          <button onClick={handleFormData} className="cursor-pointer py-2 px-12 bg-gray-800 rounded-xl text-white font-bold text-[15px]">
             Add Task
           </button>
         </div>
-        <div className="w-full h-[400px] mt-4 flex flex-col gap-4 overflow-y-auto no-scrollbar">
+        <div className="w-full h-[350px] mt-4 flex flex-col gap-4 overflow-y-auto no-scrollbar">
           {todoList &&
             todoList.map((todo, index) => {
               return (

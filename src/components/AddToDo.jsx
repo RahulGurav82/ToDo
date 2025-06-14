@@ -1,43 +1,19 @@
 import { X } from "lucide-react";
 import React, { useContext } from "react";
-import toast from "react-hot-toast";
 import { ToDoContext } from "../context/ToDoContext";
 
-const AddToDo = () => {
-
-const { inputData, setInputData, todoList, setTodoList, editedIndex, setEditedIndex} = useContext(ToDoContext)
-
+const AddToDo = ({ handleFormData }) => {
+  const { inputData, setInputData, editedIndex } = useContext(ToDoContext);
 
   const handleOnChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
 
     setInputData((prev) => ({
-        ...prev,
-        [name] : value
+      ...prev,
+      [name]: value,
     }));
   };
 
-  const handleFormData = (e) => {
-    e.preventDefault();
-    if(editedIndex !== null) {
-      const updateTodo = [...todoList];
-      updateTodo[editedIndex] = inputData;
-      setTodoList(updateTodo);
-      setEditedIndex(null);
-      toast.success("Task Updated Successfully");
-    } else {
-      setTodoList((prev) => [...prev, {...inputData, completed : false}]);
-      toast.success("Task Added Successully")
-    }
-
-
-    setInputData({
-        title: "",
-        description: "",
-        date: "",
-    });
-  }
- 
   return (
     <>
       <div className="md:w-96 w-80 h-full border-amber-950 border-2 rounded-2xl">
@@ -86,7 +62,7 @@ const { inputData, setInputData, todoList, setTodoList, editedIndex, setEditedIn
                 </label>
                 <input
                   onChange={handleOnChange}
-                value={inputData.date}
+                  value={inputData.date}
                   type="date"
                   name="date"
                   id="date"
