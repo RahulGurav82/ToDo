@@ -46,7 +46,7 @@ const TodoList = () => {
             Add Task
           </button>
         </div>
-        <div className="w-full inset-shadow-sm h-[400px] mt-4 flex flex-col gap-4 overflow-y-auto no-scrollbar">
+        <div className="w-full h-[400px] mt-4 flex flex-col gap-4 overflow-y-auto no-scrollbar">
           {todoList &&
             todoList.map((todo, index) => {
               return (
