@@ -25,6 +25,7 @@ const TodoList = () => {
     setTodoList(updatedTodos);
   }
 
+
   return (
     <>
       <div className="w-96 h-full p-4 border-amber-950 border-2 rounded-2xl">
@@ -48,6 +49,7 @@ const TodoList = () => {
                     <div className="mt-1">
                       <input
                         type="checkbox"
+                        checked={todo.completed}
                         className="cursor-pointer h-4 w-4 accent-gray-800"
                         onClick={() => toggleCompleted(index)}
                       />
